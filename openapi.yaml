@@ -122,7 +122,7 @@ components:
     BisectAutoResp:
       type: object
       properties:
-        root: { type: number, format: double }
+        root: { type: number, fmat: double }
         f: { type: number, format: double }
         lo: { type: number, format: double }
         hi: { type: number, format: double }
