@@ -1,0 +1,7 @@
+/target
+/edge/target
+.git
+**/*.swp
+**/*.rs.bk
+**/.DS_Store
+**/node_modules
