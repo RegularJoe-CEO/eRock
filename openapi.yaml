@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: eRock Edge API
+  version: "0.1.0"
+  description: SIMD-accelerated numeric expression evaluation and root-finding microservice (Rust, Axum). Deterministic, edge-ready, JSON in/out.
+servers:
+  - url: http://localhost:8080
+paths:
+  /evaluate:
+    post:
+      summary: Evaluate a numeric expression over a vector of x (SIMD).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvalReq'
+      responses:
+        '200':
+          description: Vector of evaluated y values
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvalResp'
+  /bisect:
+    post:
+      summary: Find a root in a supplied bracket [lo, hi] using bisection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BisectReq'
+      responses:
+        '200':
+          description: Root with iterations and bracket status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BisectResp'
+  /bisect_auto:
+    post:
+      summary: Auto-bracket around a guess using exponential expansion, then bisect.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BisectAutoReq'
+      responses:
+        '200':
+          description: Root with bracket and expansion details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BisectAutoResp'
+  /health:
+    get:
+      summary: Health check and version.
+      responses:
+        '200':
+          description: Service status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  service: { type: string, example: erock_edge }
+                  version: { type: string, example: 0.1.0 }
+                  status:  { type: string, example: ok }
+components:
+  schemas:
+    EvalReq:
+      type: object
+      required: [expr, x]
+      properties:
+        expr: { type: string, description: "Expression; assignment 'y = ...' optional." }
+        x:
+          type: array
+          items: { type: number, format: double }
+        vars:
+          type: object
+          additionalProperties: { type: number, format: double }
+    EvalResp:
+      type: object
+      properties:
+        y:
+          type: array
+          items: { type: number, format: double }
+    BisectReq:
+      type: object
+      required: [expr, lo, hi]
+      properties:
+        expr: { type: string }
+        lo:   { type: number, format: double }
+        hi:   { type: number, format: double }
+        vars:
+          type: object
+          additionalProperties: { type: number, format: double }
+        tol: { type: number, format: double, default: 1e-9 }
+        max_iter: { type: integer, default: 60 }
+    BisectResp:
+      type: object
+      properties:
+        root: { type: number, format: double }
+        f:    { type: number, format: double }
+        iters: { type: integer }
+        bracket_ok: { type: boolean }
+    BisectAutoReq:
+      type: object
+      required: [expr, guess]
+      properties:
+        expr: { type: string }
+        guess: { type: number, format: double }
+        step: { type: number, format: double, default: 1.0 }
+        max_expand: { type: integer, default: 20 }
+        vars:
+          type: object
+          additionalProperties: { type: number, format: double }
+        tol: { type: number, format: double, default: 1e-9 }
+        max_iter: { type: integer, default: 60 }
+    BisectAutoResp:
+      type: object
+      properties:
+        root: { type: number, format: double }
+        f: { type: number, format: double }
+        lo: { type: number, format: double }
+        hi: { type: number, format: double }
+        iters: { type: integer }
+        bracket_ok: { type: boolean }
+        expansions: { type: integer }
