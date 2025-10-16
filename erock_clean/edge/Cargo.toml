@@ -1,5 +1,6 @@
 [workspace]
 members = ["edge"]
+resolver = "2"  # Fixes resolver issues in workspaces [so-16]
 
 [package]
 name = "erock"
