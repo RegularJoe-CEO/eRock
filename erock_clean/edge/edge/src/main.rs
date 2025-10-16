@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::net::SocketAddr;
 use tokio;
-use erock::eval;
+use erock::eval;use erock::eval;
 use erock::eval;  # Import fixes unresolved [so-8]
 
 #[derive(Deserialize)]
