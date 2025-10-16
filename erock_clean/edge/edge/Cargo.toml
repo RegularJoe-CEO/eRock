@@ -8,4 +8,4 @@ axum = "0.7"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1", features = ["full"] }
-erock = { path = ".." }  # Path dep fixes no matching/unresolved [so-3] [so-23]
+erock = { path = ".." }

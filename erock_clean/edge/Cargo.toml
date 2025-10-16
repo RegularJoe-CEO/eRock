@@ -1,6 +1,6 @@
 [workspace]
 members = ["edge"]
-resolver = "2"  # Stabilizes workspace deps [so-16]
+resolver = "2"
 
 [package]
 name = "erock"
