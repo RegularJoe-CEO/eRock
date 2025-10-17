@@ -1,3 +1,8 @@
+/*
+SPDX-FileCopyrightText: 2025 Eric Waller
+SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+*/
+
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use std::collections::HashMap;
 use erock::{interpreter, lexer, parser};

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # eRock Edge — Ultra‑fast numeric expression API (Rust, SIMD, Axum) for real‑time telemetry, guardrails, and geofence root finding
 
 [![Rust](https://img.shields.io/badge/language-Rust-DEA584.svg)](https://www.rust-lang.org/)

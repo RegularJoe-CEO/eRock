@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 ### **eRock: Accelerate Your AI Pipeline**
 
 **High-Speed, Pre-Inference Processing for CNN and ML Workloads**

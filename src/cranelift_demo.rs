@@ -1,3 +1,8 @@
+/*
+SPDX-FileCopyrightText: 2025 Eric Waller
+SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+*/
+
 use cranelift::prelude::*;
 use cranelift_codegen::ir::{Function, Signature};
 use cranelift_codegen::isa::CallConv;

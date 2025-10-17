@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 ### **eRock: Dominance at the Edge**
 
 **For Unmanned Aerial Systems (UAS), Targeting, and Mission-Critical Payloads**

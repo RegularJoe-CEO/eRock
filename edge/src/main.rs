@@ -1,3 +1,8 @@
+/*
+SPDX-FileCopyrightText: 2025 Eric Waller
+SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+*/
+
 use axum::{routing::{get, post}, Json, Router};
 use serde::{Deserialize, Serialize};
 use serde_json::json;

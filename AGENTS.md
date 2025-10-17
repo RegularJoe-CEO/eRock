@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # Agent Integration — eRock Edge (Rust, Axum, SIMD)
 Deterministic, stateless JSON API for ultra‑fast numeric expressions and root‑finding. Edge‑ready, low‑latency, SIMD‑accelerated.
 

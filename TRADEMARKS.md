@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # eRock Trademarks
 
 The names “eRock” and “eRock Edge”, the EROCK word mark, and related logos are trademarks of
