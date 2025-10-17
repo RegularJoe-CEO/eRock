@@ -3,6 +3,10 @@
 
 # ---- Build stage ----
 FROM rust:1-bookworm AS builder
+LABEL org.opencontainers.image.title="eRock Edge"
+LABEL org.opencontainers.image.description="SIMD eval and root-finding microservice (Rust, Axum)"
+LABEL org.opencontainers.image.vendor="Eric Waller"
+LABEL org.opencontainers.image.licenses="LicenseRef-eRock-Business-1.0"
 WORKDIR /app
 # Copy everything (simple + reliable for workspace builds)
 COPY . .
@@ -11,6 +15,10 @@ RUN cargo build --manifest-path edge/Cargo.toml --release --locked
 
 # ---- Runtime stage ----
 FROM debian:bookworm-slim AS runtime
+LABEL org.opencontainers.image.title="eRock Edge"
+LABEL org.opencontainers.image.description="SIMD eval and root-finding microservice (Rust, Axum)"
+LABEL org.opencontainers.image.vendor="Eric Waller"
+LABEL org.opencontainers.image.licenses="LicenseRef-eRock-Business-1.0"
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates tzdata \
  && rm -rf /var/lib/apt/lists/*
 # Non-root user
