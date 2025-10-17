@@ -29,3 +29,8 @@ eRock Edge is a premium, production‑grade microservice that evaluates numeric 
 ```sh
 cargo run --manifest-path edge/Cargo.toml --release
 curl -s http://localhost:8080/health
+
+## License
+- Free for Non-Commercial and evaluation use under the eRock Business License (see LICENSE).
+- Commercial use before 2026-10-17 requires a paid license. Contact: e@ewaller.com.
+- On 2026-10-17, the code is additionally available under Apache-2.0. You may choose Apache-2.0 after that date.
