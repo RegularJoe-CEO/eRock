@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: eRock
+Upstream-Contact: Eric Waller <e@ewaller.com>
+Source: https://github.com/RegularJoe-CEO/eRock
+
+Files: *
+Copyright: 2025 Eric Waller
+License: LicenseRef-eRock-Business-1.0
+
+License: LicenseRef-eRock-Business-1.0
+ see: LICENSES/LicenseRef-eRock-Business-1.0.txt

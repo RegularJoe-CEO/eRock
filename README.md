@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/RegularJoe-CEO/eRock)](https://api.reuse.software/info/github.com/RegularJoe-CEO/eRock) ![License](https://img.shields.io/badge/license-LicenseRef--eRock--Business--1.0-blue) ![DCO](https://img.shields.io/badge/DCO-required-blue)
+
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
