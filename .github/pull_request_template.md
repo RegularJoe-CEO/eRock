@@ -1,12 +1,14 @@
-# SPDX-FileCopyrightText: 2025 Eric Waller
-# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
-
 ## Summary
-Describe what this PR changes and why.
+- What does this change do?
+
+## License and DCO
+- By submitting this PR you agree to the eRock Business License (Non‑Commercial + Timed Apache‑2.0 Conversion) v1.0.
+- All commits must include a DCO sign‑off.
+
+Add this to every commit message:
+Signed-off-by: Eric Waller <Regular-CEO@gmail.com>
 
 ## Checklist
-- [ ] My commits are signed off with `-s` (DCO).
-- [ ] I confirm my contribution is licensed under the repository’s LICENSE.
-- [ ] I did not use the eRock trademarks in ways prohibited by TRADEMARKS.md.
-
-Fixes:
+- [ ] SPDX headers present in new files
+- [ ] No change to PRO‑gated features without license checks
+- [ ] Tests pass locally
