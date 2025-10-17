@@ -80,7 +80,7 @@ components:
           items: { type: number, format: double }
         vars:
           type: object
-          additionalProperties: { type: number, format: double }
+          additionalProperties: { type: array, items: { type: number, format: double } }
     EvalResp:
       type: object
       properties:
@@ -96,7 +96,7 @@ components:
         hi:   { type: number, format: double }
         vars:
           type: object
-          additionalProperties: { type: number, format: double }
+          additionalProperties: { type: array, items: { type: number, format: double } }
         tol: { type: number, format: double, default: 1e-9 }
         max_iter: { type: integer, default: 60 }
     BisectResp:
@@ -116,7 +116,7 @@ components:
         max_expand: { type: integer, default: 20 }
         vars:
           type: object
-          additionalProperties: { type: number, format: double }
+          additionalProperties: { type: array, items: { type: number, format: double } }
         tol: { type: number, format: double, default: 1e-9 }
         max_iter: { type: integer, default: 60 }
     BisectAutoResp:
