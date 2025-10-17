@@ -1,3 +1,8 @@
+/*
+SPDX-FileCopyrightText: 2025 Eric Waller
+SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+*/
+
 use erock::{lexer, parser, interpreter};
 use std::collections::HashMap;
 

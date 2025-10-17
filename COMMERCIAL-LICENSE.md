@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # eRock Commercial License
 
 Effective until 2026-10-17 (the “Change Date”), any Commercial Use of eRock requires a paid

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # Contributing to eRock
 
 We use the Developer Certificate of Origin (DCO). Every commit must be signed off:

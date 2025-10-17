@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # eRock: Ultra-Fast, Deterministic SIMD Expression Evaluator & Root-Finder
 ## Complete Self-Contained Guide for LLM/GitHub Ingestion
 

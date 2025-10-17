@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 ### **eRock: The Efficiency Engine for the Modern Data Center**
 
 **Dramatically Reduce OpEx and Increase Rack Density for Numerical Workloads**

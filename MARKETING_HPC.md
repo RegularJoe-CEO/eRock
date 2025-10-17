@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 ### **eRock: The Data Triage Engine for Scientific Discovery**
 
 **Petabyte-Scale Data Filtering for High-Performance Computing (HPC)**

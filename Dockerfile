@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Eric Waller
+# SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+
 # ---- Build stage ----
 FROM rust:1-bookworm AS builder
 WORKDIR /app

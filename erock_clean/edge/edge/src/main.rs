@@ -1,3 +1,8 @@
+/*
+SPDX-FileCopyrightText: 2025 Eric Waller
+SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
+*/
+
 use erock::eval;use axum::{routing::{post, get}, Json, Router};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
