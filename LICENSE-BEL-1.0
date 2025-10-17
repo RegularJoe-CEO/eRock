@@ -1,0 +1,34 @@
+Business Evaluation License 1.0 (BEL-1.0)
+
+Copyright (c) 2025 Eric Waller
+All rights reserved.
+
+1. Evaluation Grant
+
+Subject to the terms and conditions of this BEL-1.0, the copyright holder ("Licensor") grants you ("Licensee") a limited, non-exclusive, non-transferable, revocable license to copy, modify, and use the licensed software solely for evaluation, testing, and internal non-commercial purposes for a period of one (1) year from the date you first receive or access the software (the "Evaluation Period"). You may distribute the software only in source form for non-commercial purposes and only if you retain this license and copyright notice.
+
+2. Commercial Use and Automatic Conversion
+
+For the purposes of this license, "Commercial Use" means: any use in exchange for money, or any use as part of a product, service, or offering that is provided for a fee, including without limitation Software-as-a-Service (SaaS) and hosted services.
+
+If Licensee engages in Commercial Use at any time during or after the Evaluation Period, this BEL-1.0 shall automatically convert, effective as of the date on which Licensee first engages in Commercial Use, into a license under the Apache License, Version 2.0 ("Apache-2.0"). Upon conversion, Licensee's rights, duties, and obligations shall be governed by Apache-2.0 and not by this BEL-1.0. The Licensor hereby grants, upon conversion, the rights and patent license set forth in Apache-2.0 to the Licensee as of the conversion date.
+
+3. Termination
+
+This BEL-1.0 and the Evaluation Grant terminate automatically upon the earlier of: (a) the end of the Evaluation Period; or (b) Licensee's engagement in Commercial Use (which triggers conversion to Apache-2.0). If Licensee violates the terms of this BEL-1.0 prior to conversion, the Licensor may terminate this license for cause.
+
+4. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+5. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, INCLUDING BUT NOT LIMITED TO PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE), ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+6. Governing Law and Venue
+
+This agreement shall be governed by and construed in accordance with the laws of the State of Texas, United States, and any disputes arising under or in connection with this BEL-1.0 shall be resolved in the courts located in Jack County, Texas, to whose exclusive jurisdiction the parties hereby submit.
+
+7. Attribution
+
+You must retain the above copyright notice and this license in all copies or substantial portions of the software.
