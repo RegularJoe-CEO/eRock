@@ -1,5 +1,12 @@
 [package]
 name = "erock"
+license-file = "LICENSE"
+readme = "README.md"
+repository = "https://github.com/RegularJoe-CEO/eRock"
+homepage = "https://github.com/RegularJoe-CEO/eRock"
+documentation = "https://github.com/RegularJoe-CEO/eRock/blob/main/EROCK_FULL_GUIDE.md"
+keywords = ["math","axum","simd","expression","root-finding"]
+categories = ["science","mathematics","web-programming::http-server"]
 version = "0.1.0"
 edition = "2021"
 
