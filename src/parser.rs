@@ -114,7 +114,10 @@ fn parse_assignment(parser: &mut Parser, arena: &mut Arena) -> Option<usize> {
                     parser.next(); // Consume '='
 
                     if let Some(value_idx) = parse_expr(parser, arena) {
-                        let idx = arena.alloc(ExprKind::Assign { name, value: value_idx });
+                        let idx = arena.alloc(ExprKind::Assign {
+                            name,
+                            value: value_idx,
+                        });
                         return Some(idx);
                     }
                 }
@@ -140,7 +143,11 @@ fn parse_term(parser: &mut Parser, arena: &mut Arena) -> Option<usize> {
             Token::Plus | Token::Minus => {
                 let op = parser.next().unwrap();
                 let right_idx = parse_factor(parser, arena)?;
-                left_idx = arena.alloc(ExprKind::Binary { left: left_idx, op, right: right_idx });
+                left_idx = arena.alloc(ExprKind::Binary {
+                    left: left_idx,
+                    op,
+                    right: right_idx,
+                });
             }
             _ => break,
         }
@@ -156,7 +163,11 @@ fn parse_factor(parser: &mut Parser, arena: &mut Arena) -> Option<usize> {
             Token::Star | Token::Slash => {
                 let op = parser.next().unwrap();
                 let right_idx = parse_primary(parser, arena)?;
-                left_idx = arena.alloc(ExprKind::Binary { left: left_idx, op, right: right_idx });
+                left_idx = arena.alloc(ExprKind::Binary {
+                    left: left_idx,
+                    op,
+                    right: right_idx,
+                });
             }
             _ => break,
         }

@@ -3,12 +3,12 @@ SPDX-FileCopyrightText: 2025 Eric Waller
 SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 */
 
+mod interpreter;
 mod lexer;
 mod parser;
-mod interpreter;
 
-use std::collections::HashMap;
 use crate::lexer::Token;
+use std::collections::HashMap;
 
 fn main() {
     let input = "sum = 3.14 + (x - 2) * 10";

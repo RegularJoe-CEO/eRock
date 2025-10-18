@@ -9,7 +9,8 @@ use std::collections::HashMap;
 use std::net::SocketAddr;
 use tokio;
 use erock::eval;use erock::eval;
-use erock::eval;  # Import fixes unresolved [so-8]
+mod jit_health;
+use erock::eval;  // Import fixes unresolved [so-8]
 
 #[derive(Deserialize)]
 struct EvalRequest {
@@ -39,7 +40,7 @@ async fn health() -> &'static str {
 async fn main() {
     let app = Router::new()
         .route("/evaluate", post(evaluate))
-        .route("/health", get(health));
+        .route("/health", axum::routing::get(jit_health::health_handler));
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
     println!("eRock server listening on http://{}", addr);
     axum::Server::bind(&addr)
