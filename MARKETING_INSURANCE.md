@@ -1,40 +1,39 @@
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
-### **eRock: Price Risk with Precision**
+### eRock: Fast Rates, Lean Hardware
 
-**High-Speed, Deterministic Calculations for Real-Time Underwriting and Insurance Rating**
-
----
-
-**THE CHALLENGE: THE INEFFICIENCY OF STATIC RISK**
-
-The insurance industry is built on risk assessment, yet many carriers are still hampered by slow, batch-based processing and outdated actuarial models. This leads to inaccurate pricing, slow quote generation, and an inability to compete with agile, data-driven competitors. To succeed, insurers need the ability to evaluate complex risks and price policies in real time.
-
-**THE SOLUTION: eROCK – THE REAL-TIME RATING ENGINE**
-
-**eRock** is a hyper-efficient, SIMD-accelerated microservice that functions as a high-throughput calculation engine for the insurance industry. By executing complex pricing and risk models with microsecond latency and absolute determinism, `eRock` empowers insurers to move from static tables to dynamic, highly accurate, real-time underwriting.
+**High‑speed calculations for modern insurance platforms**
 
 ---
 
-### **Key Applications in InsurTech**
+**THE CHALLENGE: SLOW MATH HURTS YOUR BOTTOM LINE**
 
-*   **Real-Time Underwriting Platforms:** Integrate `eRock` into your quoting portal to evaluate hundreds of data points and deliver an accurate, bindable quote in milliseconds, dramatically improving customer conversion rates.
-*   **Dynamic UBI (Usage-Based Insurance) Models:** For auto insurance, ingest real-time telematics data (speed, braking, location) and use `eRock` to instantly update a driver's risk score and pricing.
-*   **Catastrophe (CAT) Modeling:** Run high-speed simulations for floods, earthquakes, or wildfires, using `eRock` to calculate potential portfolio exposure based on real-time event data.
-*   **Fraud Detection:** Analyze claim data against a complex set of rules and heuristics in real time, flagging suspicious patterns for investigation before payment is issued.
+Underwriting decisions and usage‑based pricing rely on formula evaluations. Legacy rating engines written in Python, Excel or SQL chew through CPU cycles, delaying quotes and burning watts in your data center.
 
----
+**THE FIT: eROCK – NATIVE RATING PERFORMANCE**
 
-### **The eRock Advantage: A Competitive Edge**
-
-*   **Price Risk with Precision:** Develop more sophisticated and accurate pricing models that lead to better loss ratios and higher profitability.
-*   **Reduce Time-to-Quote:** Eliminate delays in the customer journey, providing instant, accurate quotes that win business.
-*   **Lower Computational Costs:** `eRock`'s extreme efficiency reduces the server footprint and operational costs required to run your rating and underwriting platforms.
-*   **Ensure Compliance & Auditability:** The deterministic nature of `eRock` guarantees that the same inputs will always produce the same outputs, providing a clear, auditable trail for regulatory compliance.
+`eRock` is a microservice built in compiled Rust. It evaluates rating formulas and solves for thresholds or break‑even points in microseconds. Its efficiency means you handle more quotes on the same servers and reduce power consumption in your rating pipeline.
 
 ---
 
-### **Upgrade Your Underwriting.**
+### Where it wins in InsurTech
 
-**Stop estimating. Start calculating. Deploy `eRock` for a smarter, faster, and more profitable insurance platform.**
+- **Real‑time quotes** – Compute rating factors instantly on CPU; respond to customers without adding compute nodes.
+- **Usage‑based scoring** – Process telematics or IoT features at the edge or server to update premiums without draining device batteries.
+- **Catastrophe exposure** – Solve for deductible or capacity limits quickly to respond to rapidly changing events.
+- **Fraud signals** – Evaluate numeric red flags immediately so you can flag suspicious claims with minimal infrastructure.
+
+---
+
+### Practical business benefits
+
+- **Higher throughput** – Each server can handle more quotes per second.
+- **Lower infrastructure cost** – Use cheaper CPU cores and less power to run your rating logic.
+- **Faster market reaction** – Rapid adjustments to models don’t require capacity upgrades.
+
+---
+
+### Make rating your competitive advantage
+
+`eRock` gives you high‑speed, low‑power numeric capability so your underwriting stays lean and responsive.
