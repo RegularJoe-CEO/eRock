@@ -3,7 +3,7 @@
 
 ### eRock: Fast Numeric Guardrails for UAS & Robotics
 
-**Low‑latency expression evaluation and root‑finding on the companion computer**
+**Low-latency expression evaluation and root-finding on the companion computer**
 
 ---
 
@@ -15,8 +15,8 @@ Small airborne and ground robots need simple numeric decisions close to the sens
 
 **eRock** is a lightweight Rust service that exposes two operations over a local API:
 
-- **Expression evaluation:** compute y = f(x) over numeric arrays (SIMD‑friendly on CPU).
-- **Root‑finding:** robust bisection (with optional auto‑bracketing) to solve f(t)=0 within a tolerance.
+- **Expression evaluation**: compute `y = f(x)` over numeric arrays (SIMD-friendly on CPU).  
+- **Root-finding**: robust bisection (with optional auto-bracketing) to solve `f(t)=0` within a tolerance.
 
 Run it on a companion computer; your flight or robot stack calls it for quick numeric checks and continues its own decision logic.
 
@@ -24,8 +24,8 @@ Run it on a companion computer; your flight or robot stack calls it for quick nu
 
 ### Where teams use it
 
-- **Geofence & envelope math:** compute boolean conditions or time‑to‑breach from positions and velocities you already have.
-- **Rule evaluation:** apply user‑defined formulas on derived features (battery, temperatures, currents) to gate heavier actions.
+- **Geofence & envelope math:** compute boolean conditions or time-to-breach from positions and velocities you already have.  
+- **Rule evaluation:** apply user-defined formulas on derived features (battery, temperatures, currents) to gate heavier actions.  
 - **Parameter solves:** use `bisect_auto` to solve for a boundary value in a control or safety equation.
 
 *(eRock evaluates formulas you supply; perception, control, communications, and actuation remain in your stack.)*
@@ -34,17 +34,17 @@ Run it on a companion computer; your flight or robot stack calls it for quick nu
 
 ### Why use eRock
 
-- **Deterministic:** explicit tolerances/iteration caps; same inputs → same outputs.
-- **CPU‑efficient:** small footprint, SIMD‑friendly evaluation on ARM64 or x86.
+- **Deterministic:** explicit tolerances/iteration caps; same inputs → same outputs.  
+- **CPU-efficient:** small footprint, SIMD-friendly evaluation on ARM64 or x86.  
 - **Simple integration:** local HTTP or IPC; ships as a static binary (container optional).
 
 ---
 
 ### Technical Profile
 
-- **Language:** Rust
-- **Operations:** array expression eval; bisection (manual/auto‑bracket)
-- **Design:** stateless requests; bounded runtime per call
+- **Language:** Rust  
+- **Operations:** array expression eval; bisection (manual/auto-bracket)  
+- **Design:** stateless requests; bounded runtime per call  
 - **Targets:** ARM64 or x86 (static builds; optional container)
 
 ---
