@@ -1,40 +1,46 @@
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
-### **eRock: The Nervous System for the Smart Factory**
+### eRock: A Small, Deterministic Math Service for the Factory Edge
 
-**Real-Time Edge Telemetry Processing for Predictive Maintenance and Process Optimization**
-
----
-
-**THE CHALLENGE: DROWNING IN DATA, STARVING FOR INSIGHT**
-
-The promise of Manufacturing 4.0 is buried under a mountain of sensor data. A single production line can generate terabytes of telemetry daily, overwhelming legacy systems. Sending this data to the cloud for analysis is slow, expensive, and often too late to prevent a critical failure. The key is to process data intelligently, in real time, at the source.
-
-**THE SOLUTION: eROCK – INTELLIGENCE AT THE EDGE**
-
-**eRock** is a lightweight, hyper-efficient microservice designed to be deployed directly on the factory floor—on gateways, industrial PCs, or even embedded in machinery. It processes relentless streams of sensor data (vibration, temperature, pressure, etc.) in real time, applying complex mathematical rules and heuristics to identify problems *before* they happen.
+**Low-latency numeric evaluation and root-finding next to your machines**
 
 ---
 
-### **Key Applications on the Factory Floor**
+**THE CHALLENGE: LOTS OF SENSOR DATA, SIMPLE DECISIONS NEEDED QUICKLY**
 
-*   **Predictive Maintenance:** Analyze high-frequency vibration data from motors or pumps. `eRock` can perform real-time root-finding to detect bearing wear or imbalance, triggering a maintenance alert days or weeks before a catastrophic failure.
-*   **Real-Time Quality Control:** Use `eRock` with machine vision systems to perform high-speed calculations for tolerance checks, defect detection, and assembly verification, ensuring 100% quality at production speed.
-*   **Process Optimization:** Monitor energy consumption, chemical composition, or flow rates in real time. `eRock` can evaluate complex efficiency formulas to provide operators with immediate feedback for process tuning.
-*   **Robotic Guardrails & Geofencing:** Ensure worker safety by using `eRock` to perform high-speed 2D/3D geofence calculations, creating instant-shutdown zones around robotic arms or autonomous guided vehicles (AGVs).
+Factories produce continuous telemetry, but many edge decisions reduce to fast math on recent measurements (thresholds, formulas, or solving for a value). Offloading every check to the cloud adds latency and cost.
 
----
+**THE FIT: eROCK – NUMERIC CO-PROCESSOR AT THE EDGE**
 
-### **The eRock Advantage: From Data to Decision, Instantly**
+**eRock** is a lightweight Rust microservice you run on an industrial PC or gateway. It exposes two capabilities over HTTP:
 
-*   **Prevent Costly Downtime:** Identify machine health degradation in real time to schedule maintenance proactively, maximizing uptime and production output.
-*   **Increase Yield & Reduce Waste:** Catch quality deviations the moment they occur, reducing material waste and improving final product quality.
-*   **Enhance Worker Safety:** Implement deterministic, low-latency safety guardrails for automated and robotic systems.
-*   **Reduce Data Backhaul Costs:** Process and filter data at the edge. Send only critical alerts or summaries to the cloud, slashing connectivity and storage costs.
+- **Expression evaluation**: compute y = f(x) over arrays (vectorized).
+- **Root-finding**: robust bisection (with auto-bracketing) to solve f(t)=0 within a tolerance.
+
+Upstream systems (PLCs, vision, analytics) call eRock with measured features and formulas; eRock returns the numbers quickly and deterministically.
 
 ---
 
-### **Build a Smarter Factory.**
+### Examples on the Factory Floor (with upstream systems in place)
 
-**Turn your machine data into your most valuable asset. Deploy `eRock` for a more efficient, resilient, and profitable operation.**
+- **Maintenance rules:** Evaluate health indices (e.g., RMS, crest factor) that your vibration pipeline computes, and trip alerts when formulas cross thresholds.
+- **Quality checks:** If a vision system outputs dimensions, use eRock to apply tolerance math at line speed.
+- **Process KPIs:** Evaluate efficiency or mass‑balance equations from live process variables.
+- **Geofence math:** Given positions/velocities, compute a time‑to‑breach or rule condition; your safety controller decides the action.
+
+*(eRock does the math; streaming, feature extraction, and actuation remain in your systems.)*
+
+---
+
+### Why teams use eRock
+
+- **Deterministic & lightweight:** Small Rust service, predictable latency, explicit iteration/tolerance limits.
+- **Runs anywhere:** Edge gateway/IPC, x86 or ARM.
+- **Simple integration:** JSON in/out; call from PLC gateways, SCADA connectors, or companion apps.
+
+---
+
+### Build a Smarter Edge—One Decision at a Time
+
+Use eRock to evaluate formulas and solve for thresholds locally. Pair it with your existing telemetry, analytics, and control systems to reduce latency and cloud dependence.

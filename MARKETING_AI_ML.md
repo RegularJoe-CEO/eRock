@@ -1,51 +1,55 @@
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
-### **eRock: Accelerate Your AI Pipeline**
+### eRock: Fast Numeric Pre-Checks for AI Pipelines
 
-**High-Speed, Pre-Inference Processing for CNN and ML Workloads**
-
----
-
-**THE CHALLENGE: THE GPU BOTTLENECK**
-
-In modern AI systems, GPUs are the engines of discovery, but they are an expensive and often over-utilized resource. A significant portion of a GPU's processing time is wasted on simple, repetitive, but high-volume calculations—normalizing data, applying thresholds, and heuristic scoring—before the core AI inference can even begin. This pre-processing phase creates a bottleneck, consuming valuable GPU cycles, increasing latency, and driving up the operational cost of your entire AI pipeline.
-
-**THE SOLUTION: eROCK – OFFLOAD THE PREP, ACCELERATE THE INFERENCE**
-
-**eRock** is a hyper-efficient, SIMD-accelerated microservice designed to serve as a high-throughput pre-inference engine. By offloading the initial numerical-heavy lifting from your GPUs, `eRock` allows your expensive AI hardware to focus exclusively on what it does best: running the neural network. This dramatically increases the overall throughput and efficiency of your entire pipeline.
+**Low-latency expression evaluation and root-finding you can call before inference**
 
 ---
 
-### **Key Applications in AI & Machine Learning**
+**THE CHALLENGE: KEEP GPUS FOR WHAT THEY’RE BEST AT**
 
-`eRock` is the ideal solution for real-time pre-processing and data filtering *before* the CNN or ML model.
+Many pipelines perform simple numeric checks (thresholds, feature rules, score cutoffs) before running a neural net. If those checks aren’t efficient—or they happen on the wrong hardware— they add latency and waste expensive GPU time.
 
-*   **Real-Time Image Normalization:** Onboard a drone or in a data center, `eRock` can process thousands of images per second, applying normalization formulas, adjusting brightness/contrast, or applying color filters before sending them to a CNN for object detection.
-*   **Dynamic Thresholding & Data Filtering:** Ingest massive streams of sensor or financial data and use `eRock` to apply complex rules and heuristics in real time. Filter out 99% of the noise and ensure only the most valuable data is sent to your predictive models.
-*   **Heuristic Scoring & Feature Engineering:** Rapidly calculate preliminary scores or generate simple features for millions of data points. Use `eRock` to decide which data is worth the cost of a full ML evaluation, optimizing resource allocation.
-*   **Edge AI for IoT and Robotics:** On power-constrained edge devices, use `eRock` for the initial, high-speed sensor data evaluation, triggering a more power-intensive AI model only when a specific threshold or condition is met.
+**THE FIT: eROCK – A SMALL NUMERIC SERVICE ON THE CPU**
 
----
+**eRock** is a lightweight Rust microservice that exposes two operations over HTTP:
 
-### **The eRock Advantage: Maximizing Your AI ROI**
+- **Expression evaluation:** compute y = f(x) over numeric arrays (SIMD‑friendly).
+- **Root-finding:** robust bisection (with auto‑bracketing) to solve f(t)=0 within a tolerance.
 
-*   **Free Up Your GPUs:** Let your most expensive hardware focus on its core task. `eRock` handles the high-volume, low-complexity math, increasing the number of inferences your GPUs can perform per second.
-*   **Reduce End-to-End Latency:** By performing the initial calculations at blistering speed, `eRock` reduces the total time from data ingestion to final result, which is critical for real-time applications.
-*   **Lower Operational Costs:** `eRock` runs with extreme energy efficiency on cheaper CPU or ARM-based hardware, reducing the power and cooling costs associated with running these workloads on GPUs.
-*   **Simple Integration:** With a clean RESTful API and deployment as a lightweight Docker container, `eRock` slots seamlessly into any existing AI pipeline (e.g., in front of a SageMaker or TensorFlow Serving endpoint).
+You call eRock from your data loader, stream processor, or web service to run quick numeric rules. Keep GPUs focused on model inference.
 
 ---
 
-### **Technical Profile**
+### Where teams use it
 
-*   **Language:** Rust (Memory-safe, high-performance)
-*   **Architecture:** SIMD-accelerated for hardware-level parallelism on CPUs.
-*   **Workload:** Optimized for high-throughput, deterministic, stateless numerical evaluation.
-*   **Deployment:** Lightweight Docker container for easy orchestration.
+- **Pre‑check gates:** compute simple scores or threshold rules on features you already extracted; only forward candidates to your CNN/ML service.
+- **Signal screening:** in a stream job, call eRock to evaluate boolean rules on recent measurements and drop obvious negatives.
+- **Parameter solves:** use `bisect` or `bisect_auto` to solve for a cutoff or boundary value in a formula before scheduling a heavier model step.
+- **Edge deployments:** on CPU‑only gateways, run the same numeric rules close to the data source to save round‑trips.
+
+*(eRock evaluates your formulas on numeric inputs you provide; image decoding, feature extraction, and inference remain in your pipeline.)*
 
 ---
 
-### **Smarter Pipelines Start Here.**
+### Why use eRock
 
-**Stop wasting GPU cycles. Let `eRock` handle the prep work.**
+- **Small & deterministic:** bounded iterations/tolerances; predictable latency on CPU.
+- **Runs on x86/ARM:** deploy to gateways or servers.
+- **Simple integration:** JSON in/out over HTTP; package as a lightweight container.
+
+---
+
+### Technical Profile
+
+- **Language:** Rust
+- **Operations:** array expression eval; bisection (manual or auto‑bracket)
+- **Design:** stateless requests; SIMD‑friendly evaluation
+- **Deployment:** Docker container (x86/ARM)
+
+---
+
+### Keep your GPUs focused
+
+Use eRock for quick numeric decisions before inference.

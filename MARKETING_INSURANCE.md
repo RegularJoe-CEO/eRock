@@ -1,40 +1,55 @@
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
-### **eRock: Price Risk with Precision**
+### eRock: Fast Numeric Calculations for Insurance Platforms
 
-**High-Speed, Deterministic Calculations for Real-Time Underwriting and Insurance Rating**
-
----
-
-**THE CHALLENGE: THE INEFFICIENCY OF STATIC RISK**
-
-The insurance industry is built on risk assessment, yet many carriers are still hampered by slow, batch-based processing and outdated actuarial models. This leads to inaccurate pricing, slow quote generation, and an inability to compete with agile, data-driven competitors. To succeed, insurers need the ability to evaluate complex risks and price policies in real time.
-
-**THE SOLUTION: eROCK – THE REAL-TIME RATING ENGINE**
-
-**eRock** is a hyper-efficient, SIMD-accelerated microservice that functions as a high-throughput calculation engine for the insurance industry. By executing complex pricing and risk models with microsecond latency and absolute determinism, `eRock` empowers insurers to move from static tables to dynamic, highly accurate, real-time underwriting.
+**Low‑latency expression evaluation and root‑finding you can call from underwriting and rating systems**
 
 ---
 
-### **Key Applications in InsurTech**
+**THE CHALLENGE: SLOW MATH IN THE CRITICAL PATH**
 
-*   **Real-Time Underwriting Platforms:** Integrate `eRock` into your quoting portal to evaluate hundreds of data points and deliver an accurate, bindable quote in milliseconds, dramatically improving customer conversion rates.
-*   **Dynamic UBI (Usage-Based Insurance) Models:** For auto insurance, ingest real-time telematics data (speed, braking, location) and use `eRock` to instantly update a driver's risk score and pricing.
-*   **Catastrophe (CAT) Modeling:** Run high-speed simulations for floods, earthquakes, or wildfires, using `eRock` to calculate potential portfolio exposure based on real-time event data.
-*   **Fraud Detection:** Analyze claim data against a complex set of rules and heuristics in real time, flagging suspicious patterns for investigation before payment is issued.
+Modern quoting and risk workflows still spend valuable time doing straightforward numeric work—rating formulas, thresholds, and parameter solves—before or alongside calls to external data sources. If those calculations aren’t efficient, they add latency and cost.
 
----
+**THE FIT: eROCK – A SMALL, DETERMINISTIC CPU SERVICE**
 
-### **The eRock Advantage: A Competitive Edge**
+**eRock** is a lightweight Rust microservice that exposes two operations over HTTP:
 
-*   **Price Risk with Precision:** Develop more sophisticated and accurate pricing models that lead to better loss ratios and higher profitability.
-*   **Reduce Time-to-Quote:** Eliminate delays in the customer journey, providing instant, accurate quotes that win business.
-*   **Lower Computational Costs:** `eRock`'s extreme efficiency reduces the server footprint and operational costs required to run your rating and underwriting platforms.
-*   **Ensure Compliance & Auditability:** The deterministic nature of `eRock` guarantees that the same inputs will always produce the same outputs, providing a clear, auditable trail for regulatory compliance.
+- **Expression evaluation:** compute y = f(x) over numeric arrays (SIMD‑friendly).
+- **Root‑finding:** robust bisection (manual or auto‑bracket) to solve f(t)=0 within a tolerance.
+
+Your platform supplies the inputs and formulas; eRock returns results quickly and predictably so your quoting and risk services can respond faster.
 
 ---
 
-### **Upgrade Your Underwriting.**
+### Where teams use it
 
-**Stop estimating. Start calculating. Deploy `eRock` for a smarter, faster, and more profitable insurance platform.**
+- **Quoting paths:** compute rating factors and surcharges from normalized inputs; keep external I/O out of the hot loop.
+- **Usage‑based scoring:** have your telematics pipeline call eRock for numeric score updates on already‑derived features.
+- **Exposure calculations:** evaluate portfolio‑level or per‑location formulas before more expensive simulation steps.
+- **Rules with thresholds:** use root‑finding to solve for boundary values in pricing or eligibility formulas.
+
+*(eRock evaluates your formulas; data acquisition, eligibility logic, policy binding, and simulations remain in your systems.)*
+
+---
+
+### Why use eRock
+
+- **Deterministic:** explicit tolerances/iteration caps; same inputs → same outputs.
+- **CPU‑efficient:** runs on x86/ARM; SIMD‑aware evaluation.
+- **Simple integration:** JSON over HTTP; small container footprint.
+
+---
+
+### Technical Profile
+
+- **Language:** Rust
+- **Operations:** array expression eval; bisection (manual/auto‑bracket)
+- **Design:** stateless requests; SIMD‑friendly evaluation
+- **Deployment:** Docker container (x86/ARM)
+
+---
+
+### Upgrade your math path
+
+Use eRock to compute the numeric pieces quickly—so your underwriting can move faster.

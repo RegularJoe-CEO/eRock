@@ -1,40 +1,53 @@
 # SPDX-FileCopyrightText: 2025 Eric Waller
 # SPDX-License-Identifier: LicenseRef-eRock-Business-1.0
 
-### **eRock: The Data Triage Engine for Scientific Discovery**
+### eRock: Fast Numeric Filters for Scientific Pipelines
 
-**Petabyte-Scale Data Filtering for High-Performance Computing (HPC)**
-
----
-
-**THE CHALLENGE: FINDING THE SIGNAL IN THE NOISE**
-
-Modern scientific instruments—from particle accelerators to radio telescopes and genomic sequencers—generate an incomprehensible flood of data, often petabytes per day. The vast majority of this data is noise. The challenge is to perform a real-time, high-speed triage, applying mathematical filters to discard the noise and save only the potentially groundbreaking events for deeper analysis. This initial filtering stage is a massive computational and energy bottleneck, consuming millions of dollars in power and limiting the pace of discovery.
-
-**THE SOLUTION: eROCK – HYPER-EFFICIENT, REAL-TIME TRIAGE**
-
-**eRock** is a specialized microservice designed for this exact purpose. Built on Rust and leveraging SIMD acceleration, `eRock` executes these critical filtering and heuristic scoring tasks with unparalleled performance-per-watt. By deploying `eRock` as the first stage in an HPC data pipeline, research institutions can process more experimental data, faster, and at a fraction of the energy cost.
+**Low‑latency expression evaluation and root‑finding you can call inside HPC data flows**
 
 ---
 
-### **Key Applications in HPC & Scientific Research**
+**THE CHALLENGE: QUICK DECISIONS ON HUGE DATA**
 
-*   **Particle Physics:** In environments like the Large Hadron Collider (LHC), `eRock` can serve as a core component of the Level 1 Trigger system, analyzing collision data in nanoseconds to make the crucial decision of whether to keep or discard an event, saving petabytes of storage and analysis costs.
-*   **Radio Astronomy (SETI):** Process vast datasets from radio telescope arrays in real time. Use `eRock` to apply filtering algorithms to discard background noise and identify potential signals of interest for further study.
-*   **Genomics & Bioinformatics:** Accelerate the primary analysis pipeline by using `eRock` for high-speed quality scoring and filtering of raw DNA sequencing reads before the more complex and computationally expensive alignment and variant calling stages.
-*   **Climate & Weather Modeling:** Use `eRock` for the high-speed pre-processing of raw satellite and sensor data, normalizing and filtering it before it is assimilated into larger, more complex climate simulations.
+Scientific facilities generate enormous data streams, but many early keep/drop decisions reduce to fast numeric checks on features already extracted by DAQ or preprocessing code. If those checks aren’t efficient, they add latency and consume precious compute.
 
----
+**THE FIT: eROCK – A SMALL, DETERMINISTIC CPU SERVICE**
 
-### **The eRock Advantage: A New Scale of Efficiency**
+**eRock** is a lightweight Rust microservice exposing two operations over HTTP:
 
-*   **Massive Reduction in Energy Costs:** `eRock`'s extreme energy efficiency can translate into millions of dollars in annual savings for a large-scale research facility, freeing up budget for more research and instrumentation.
-*   **Increased Discovery Throughput:** By processing and filtering data faster, `eRock` allows scientists to analyze larger datasets and run more experiments, accelerating the fundamental pace of scientific discovery.
-*   **Maximize Supercomputer Utilization:** Offload the high-volume, low-complexity filtering work from the main supercomputing nodes. This frees up the most powerful (and expensive) parts of the machine to focus on the deep, complex analysis they were built for.
-*   **Deterministic & Reproducible Science:** `eRock`'s stateless and deterministic nature ensures that the data triage process is 100% reproducible, a critical requirement for scientific validity.
+- **Expression evaluation:** compute y = f(x) over numeric arrays (SIMD‑friendly).
+- **Root‑finding:** robust bisection (with optional auto‑bracketing) to solve f(t)=0 within a tolerance.
+
+Your DAQ/stream job calls eRock with numeric inputs; eRock returns results quickly and predictably so heavier stages stay focused on deep analysis.
 
 ---
 
-### **Filter Faster. Discover More. Spend Less.**
+### Where teams use it
 
-**`eRock` is the essential engine for turning data deluges into scientific breakthroughs.**
+- **High‑rate experiments:** evaluate user‑defined formula gates on features your DAQ pipeline computes, reducing downstream load.
+- **Radio astronomy:** apply simple numeric filters to channelized or aggregated measurements before more expensive detection steps.
+- **Genomics pipelines:** run scalar or array‑based rule checks on per‑read or per‑chunk quality metrics produced upstream.
+- **Earth observation & climate:** compute threshold logic on derived variables prior to assimilation or large simulations.
+
+*(eRock evaluates formulas on numeric arrays you provide; domain‑specific parsing, DSP, and data transport remain in your system.)*
+
+---
+
+### Why use eRock
+
+- **Deterministic:** explicit tolerances/iteration caps; reproducible given fixed inputs.
+- **CPU‑friendly:** runs on x86/ARM; SIMD‑aware evaluation.
+- **Simple to integrate:** JSON over HTTP; small container footprint.
+
+---
+
+### Technical Profile
+
+- **Language:** Rust
+- **Operations:** array expression eval; bisection (manual/auto‑bracket)
+- **Design:** stateless requests; SIMD‑friendly evaluation
+- **Deployment:** Docker container (x86/ARM)
+
+---
+
+**Filter the simple stuff fast. Save the big iron for discovery.**
