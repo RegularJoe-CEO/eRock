@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::json;
 use std::collections::HashMap;
 use erock::{lexer, parser, interpreter};
+mod jit_health;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
 
@@ -206,7 +207,7 @@ async fn main() {
         .route("/evaluate", post(evaluate))
         .route("/bisect", post(bisect))
         .route("/bisect_auto", post(bisect_auto))
-        .route("/health", get(health));
+        .route("/health", axum::routing::get(crate::jit_health::health_handler));
     let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
